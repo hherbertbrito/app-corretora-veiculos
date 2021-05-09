@@ -1,0 +1,27 @@
+<div>
+    <form novalidate [formGroup]="form" (ngSubmit)="gerarRelatorio()">
+        <div class="container-filter">
+            <mat-form-field appearance="legacy">
+                <mat-label>Data inicial:</mat-label>
+                <input matInput formControlName="dateInitial" placeholder="Ex.: João Nascimento" [(ngModel)]="dateInitial" type="date" required/>
+                <button *ngIf="dateInitial" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="dateInitial = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Data final:</mat-label>
+                <input matInput formControlName="dateFinal" [(ngModel)]="dateFinal" type="date" required [ngClass]="{'is-ivalid': hasError('dateFinal')}" />
+                <button *ngIf="dateFinal" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="dateFinal = ''">
+            <mat-icon>close</mat-icon>
+      </button>
+            </mat-form-field>
+        </div>
+        <button class="button-submit" type="submit" mat-raised-button>Gerar Relatório</button>
+
+    </form>
+
+    <div *ngIf="veiculos" class="content-relatorio">
+        <data-table-veiculos [dataTable]="veiculos">
+        </data-table-veiculos>
+    </div>
+</div>

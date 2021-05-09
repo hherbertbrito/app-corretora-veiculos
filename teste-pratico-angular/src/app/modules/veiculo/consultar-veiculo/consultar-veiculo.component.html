@@ -1,0 +1,34 @@
+<div class="container-component">
+    <mat-card>
+        <mat-card-content>
+            <h3>Pesquisar por.:</h3>
+            <section>
+                <mat-checkbox [(ngModel)]="checkedPlaca" (click)="textInputFilterPlaca = ''">Placa</mat-checkbox>
+                <mat-checkbox [(ngModel)]="checkedModelo" (click)="textInputFilterModelo = ''">Modelo</mat-checkbox>
+            </section>
+            <section>
+                <div class="container-filter">
+                    <mat-form-field *ngIf="checkedPlaca" appearance="legacy">
+                        <mat-label>Pesquisar Placa</mat-label>
+                        <input matInput [(ngModel)]="textInputFilterPlaca" />
+                        <button mat-button matSuffix mat-icon-button *ngIf="textInputFilterPlaca" aria-label="Clear" (click)="textInputFilterPlaca = ''">
+                          <mat-icon>close</mat-icon>
+                        </button>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="checkedModelo" appearance="legacy">
+                        <mat-label>Pesquisar Modelo</mat-label>
+                        <input matInput [(ngModel)]="textInputFilterModelo" />
+                        <button mat-button matSuffix mat-icon-button *ngIf="textInputFilterModelo" aria-label="Clear" (click)="textInputFilterModelo = ''">
+                        <mat-icon>close</mat-icon>
+                      </button>
+                    </mat-form-field>
+                </div>
+            </section>
+        </mat-card-content>
+    </mat-card>
+    <section>
+        <data-table-veiculos [dataTable]="veiculos" [searchPlacaInTable]="textInputFilterPlaca" [searchModeloInTable]="textInputFilterModelo">
+        </data-table-veiculos>
+    </section>
+</div>

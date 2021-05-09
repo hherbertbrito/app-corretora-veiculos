@@ -1,0 +1,27 @@
+.container-filter {
+    display: flex;
+    flex-direction: row;
+    justify-content: baseline;
+    flex-wrap: wrap;
+    mat-form-field {
+        margin: 10px;
+        width: 200px;
+        button {
+            font-size: 10px;
+            border: 0;
+            justify-content: center;
+            align-items: center;
+            background-color: transparent;
+            line-height: 2;
+        }
+    }
+}
+
+.button-submit {
+    background-color: #1976d2;
+    color: #fff;
+}
+
+.content-relatorio {
+    margin: 10px;
+}

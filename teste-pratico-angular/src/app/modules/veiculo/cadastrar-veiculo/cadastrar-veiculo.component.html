@@ -1,0 +1,88 @@
+<div class="content">
+    <form (ngSubmit)="gravar()" [formGroup]="form">
+        <mat-checkbox formControlName="ativo" [(ngModel)]="veiculo.ativo" [checked]="veiculo.ativo" (ngModelChange)="setDataDesativacao()">Ativo</mat-checkbox>
+
+        <div class="container-filter">
+            <mat-form-field appearance="legacy">
+                <mat-label>Placa:</mat-label>
+                <input matInput [(ngModel)]="veiculo.placa" maxlength="10" required formControlName="placa" />
+                <button *ngIf="veiculo.placa" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.placa = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Modelo:</mat-label>
+                <input matInput [(ngModel)]="veiculo.modelo" maxlength="30" required formControlName="modelo" />
+                <button *ngIf="veiculo.modelo" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.modelo = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Ano Modelo:</mat-label>
+                <input matInput [ngModel]="veiculo.anoModelo" maxlength="4" required formControlName="anoModelo" (ngModelChange)="veiculo.anoModelo=$event" />
+                <button *ngIf="veiculo.anoModelo" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.anoModelo = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Ano fabricação:</mat-label>
+                <input matInput [(ngModel)]="veiculo.anoFabricacao" maxlength="4" required formControlName="anoFabricacao" />
+                <button *ngIf="veiculo.anoFabricacao" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.anoFabricacao = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Chassi:</mat-label>
+                <input matInput [(ngModel)]="veiculo.chassi" maxlength="40" required formControlName="chassi" />
+                <button *ngIf="veiculo.chassi" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.chassi = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Cor:</mat-label>
+                <input matInput [(ngModel)]="veiculo.cor" maxlength="20" formControlName="cor" />
+                <button *ngIf="veiculo.cor" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.cor = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Consumo médio KM:</mat-label>
+                <input matInput [(ngModel)]="veiculo.consumoMedioKM" type="number" required formControlName="consumoMedioKM" />
+                <button *ngIf="veiculo.consumoMedioKM" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.consumoMedioKM = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Quant. Passageiros:</mat-label>
+                <input matInput [(ngModel)]="veiculo.qtdPassageiros" type="number" required formControlName="qtdPassageiros" />
+                <button *ngIf="veiculo.qtdPassageiros" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.qtdPassageiros = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy">
+                <mat-label>Data Cadastro:</mat-label>
+                <input matInput [ngModel]="veiculo.dataCadastro" formControlName="dataCadastro" />
+                <button *ngIf="veiculo.dataCadastro" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.dataCadastro = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+
+            <mat-form-field appearance="legacy" *ngIf="!veiculo.ativo">
+                <mat-label>Data Desativação:</mat-label>
+                <input matInput [(ngModel)]="veiculo.dataDesativacao" required formControlName="dataDesativacao" />
+                <button *ngIf="veiculo.dataDesativacao" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="veiculo.dataDesativacao = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+        </div>
+        <button class="button-submit" type="submit" mat-raised-button>Gravar</button>
+    </form>
+</div>

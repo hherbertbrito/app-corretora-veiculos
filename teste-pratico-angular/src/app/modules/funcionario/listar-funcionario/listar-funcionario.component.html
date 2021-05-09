@@ -1,0 +1,35 @@
+<div class="container-component">
+    <mat-card>
+        <mat-card-content>
+            <h3>Pesquisar por.:</h3>
+            <section>
+                <mat-checkbox [(ngModel)]="checkedNome" (click)="textInputFilterNome=''">Nome</mat-checkbox>
+                <mat-checkbox [(ngModel)]="checkedCpf" (click)="textInputFilterCpf=''">Cpf</mat-checkbox>
+            </section>
+            <section>
+                <div class="container-filter">
+                    <mat-form-field *ngIf="checkedNome" appearance="legacy">
+                        <mat-label>Pesquisar Nome</mat-label>
+                        <input #inputFilterNome matInput placeholder="Ex.: João Nascimento" [(ngModel)]="textInputFilterNome">
+                        <button mat-button matSuffix mat-icon-button *ngIf="textInputFilterNome" aria-label="Clear" (click)="textInputFilterNome=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                    </mat-form-field>
+
+                    <mat-form-field *ngIf="checkedCpf" appearance="legacy">
+                        <mat-label>Pesquisar CPF</mat-label>
+                        <input matInput placeholder="Ex.: 000.000.000-00" maxlength="14" [ngModel]="textInputFilterCpf | cpfPipe" (ngModelChange)="textInputFilterCpf=$event">
+                        <button mat-button matSuffix mat-icon-button *ngIf="textInputFilterCpf" aria-label="Clear" (click)="textInputFilterCpf=''">
+                      <mat-icon>close</mat-icon>
+                    </button>
+                    </mat-form-field>
+
+                </div>
+            </section>
+        </mat-card-content>
+    </mat-card>
+    <section>
+        <data-table-funcionarios [dataTable]="funcionarios" [searchNomeInTable]="textInputFilterNome" [searchCpfInTable]="textInputFilterCpf">
+        </data-table-funcionarios>
+    </section>
+</div>

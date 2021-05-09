@@ -1,0 +1,25 @@
+<div>
+    <form novalidate [formGroup]="form" (ngSubmit)="gerarRelatorio()">
+        <div class="container-filter">
+            <mat-form-field appearance="legacy">
+                <mat-label>Data inicial:</mat-label>
+                <input matInput formControlName="dateInitial" [(ngModel)]="dateInitial" type="date" />
+                <button *ngIf="dateInitial" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="dateInitial = ''">
+            <mat-icon>close</mat-icon>
+          </button>
+            </mat-form-field>
+            <mat-form-field appearance="legacy">
+                <mat-label>Data final:</mat-label>
+                <input matInput formControlName="dateFinal" [(ngModel)]="dateFinal" type="date" />
+                <button *ngIf="dateFinal" mat-button matSuffix mat-icon-buttonaria-label="Clear" (click)="dateFinal = ''">
+          <mat-icon>close</mat-icon>
+        </button>
+            </mat-form-field>
+        </div>
+        <button class="button-submit" mat-raised-button type="submit">Gerar Relatório</button>
+    </form>
+    <div *ngIf="funcionarios" class="content-relatorio">
+        <data-table-funcionarios [dataTable]="funcionarios">
+        </data-table-funcionarios>
+    </div>
+</div>

@@ -1,0 +1,84 @@
+<mat-drawer-container>
+    <mat-drawer #drawer mode="side" opened>
+        <span>{{ title }}</span>
+
+        <menu-accordion title="Funcionário">
+            <mat-list-item>
+                <a role="link" routerLink="/funcionario/consultar" routerLinkActive="active" (click)="page = 'Consulta Funcionários'">
+          Consultar
+        </a>
+            </mat-list-item>
+            <mat-list-item>
+                <a role="link" routerLink="/funcionario/cadastrar" routerLinkActive="active" (click)="page = 'Cadastrar de Funcionário'">Cadastrar</a
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          role="link"
+          routerLink="/funcionario/relatorio"
+          routerLinkActive="active"
+          (click)="
+            page = 'Relatório de funcionários com aniversariantes no período'
+          "
+          >Relatorio</a
+        >
+      </mat-list-item>
+    </menu-accordion>
+
+    <menu-accordion title="Veículo">
+      <mat-list-item>
+        <a
+          role="link"
+          routerLink="/veiculo/consultar"
+          routerLinkActive="active"
+          (click)="page = 'Consulta veículos cadastrados'"
+          >Consultar</a
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          role="link"
+          routerLink="/veiculo/cadastrar"
+          routerLinkActive="active"
+          (click)="page = 'Cadastro de veículos'"
+          >Cadastrar</a
+        >
+      </mat-list-item>
+      <mat-list-item>
+        <a
+          role="link"
+          routerLink="/veiculo/relatorio"
+          routerLinkActive="active"
+          (click)="page = 'Relatório de veículos ativos no período'"
+          >Relatorio</a
+        >
+      </mat-list-item>
+    </menu-accordion>
+  </mat-drawer>
+
+  <mat-drawer-content>
+    <mat-toolbar class="toolbar">
+      <mat-toolbar-row>
+        <button
+          #buttonCollapse
+          class="button-icon"
+          mat-icon-button
+          aria-label="menu"
+          (click)="toggle()"
+        >
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <span #titleTollbar hidden>{{ title }}</span>
+        <span class="example-spacer"></span>
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <div class="path-page">
+      {{ page }}
+    </div>
+
+    <section>
+      <router-outlet></router-outlet>
+    </section>
+  </mat-drawer-content>
+</mat-drawer-container>
