@@ -1,0 +1,9 @@
+/node_modules
+/dist
+/config
+.gitignore
+.gitattributes
+LICENSE
+README.md
+proxy.conf.js
+Dockerfile
