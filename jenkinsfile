@@ -1,0 +1,14 @@
+pipeline {
+    agent any
+    stages {
+        stage('testes') {
+            steps {
+                sh '''
+                    docker info
+                    docker compose version
+                    docker version
+                '''
+            }
+        }
+    }
+}
