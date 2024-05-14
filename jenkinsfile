@@ -12,7 +12,6 @@ pipeline {
         }
         stage('contrução'){
             steps {
-                sh 'docker compose kill -d'
                 sh 'docker compose up -d'
             }
         }
